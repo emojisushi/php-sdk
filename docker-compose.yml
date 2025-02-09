@@ -1,0 +1,32 @@
+name: "emojisushi-php-api"
+
+#Docker Networks
+networks:
+  laravel:
+    driver: bridge
+
+# Workflow
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: ./compose/php/Dockerfile
+    volumes:
+      - ./:/var/www/html:delegated
+    networks:
+      - laravel
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  composer:
+    build:
+      context: ./
+      dockerfile: ./compose/php/composer/Dockerfile
+    volumes:
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    user: laravel
+    networks:
+      - laravel
+    entrypoint: ['composer', '--ignore-platform-reqs']

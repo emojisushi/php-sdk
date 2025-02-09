@@ -1,0 +1,34 @@
+{
+  "name": "emojisushi/api",
+  "description": "Emojisushi API",
+  "keywords": [
+    "Salesbox",
+    "Api"
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Emojisushi\\Api\\": "./src"
+    }
+  },
+  "authors": [
+    {
+      "name": "Volodymyr Rudomanenko",
+      "email": "rudomanenkovladimir@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^8.0",
+    "guzzlehttp/guzzle": "^7.0.1",
+    "symfony/property-access": "^6.4",
+    "symfony/property-info": "6.3",
+    "symfony/serializer": "^6.4"
+  },
+  "require-dev": {
+    "laravel/pint": "^v1.1.0"
+  },
+  "scripts": {
+    "format": "vendor/bin/pint"
+  }
+}
